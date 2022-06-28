@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>Welcome to TextUtils! </strong> You can analyze or edit your text below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+    <div class="container">
+       <form action='/analyze' method='post'>{% csrf_token %}
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1" class="form-label"><h3>Enter your Text here</h3></label>
+          <textarea name='text' class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+      </div>
+
+         <div class="form-check form-switch mt-2">
+            <input class="form-check-input" type="checkbox" name="removepunc" role="switch" id="flexSwitchCheckDefault1">
+            <label class="form-check-label" for="flexSwitchCheckDefault1">Remove Punctuations</label>
+        </div>
+         <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="fullcaps" role="switch" id="flexSwitchCheckDefault2">
+            <label class="form-check-label" for="flexSwitchCheckDefault2"> UPPERCASE</label>
+        </div>
+         <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="newlineremover" role="switch" id="flexSwitchCheckDefault3">
+            <label class="form-check-label" for="flexSwitchCheckDefault3"> New Line Remover</label>
+        </div>
+         <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="extraspaceremover" role="switch" id="flexSwitchCheckDefault4">
+            <label class="form-check-label" for="flexSwitchCheckDefault4"> Remove Extra Space</label>
+        </div>
+         <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="charcounter" role="switch" id="flexSwitchCheckDefault5">
+            <label class="form-check-label" for="flexSwitchCheckDefault5">Count of Characters</label>
+        </div>
+        <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
+      </form>
+    </div>
+{% endblock %}

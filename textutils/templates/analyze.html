@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!! </strong> Your text has been analyzed.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+    <div class="container">
+        <h1>Your Analyzed Text - {{ purpose }}</h1>
+        <p>
+            <pre><h4>{{ analyzed_text}}</h4></pre>
+        </p>
+    </div>
+{% endblock %}
